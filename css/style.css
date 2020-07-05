@@ -1,0 +1,80 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat';
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  height: 100vh;
+  background: #2f2f2f url("../Donutpng.jpg") no-repeat;
+  background-size: cover;
+  background-position: center center;
+  color: #fff;
+}
+
+.container {
+  background: #3a3a3a7a;
+  padding: 2em;
+  text-align: center;
+}
+
+.container h1, .container p, .container input {
+  margin: .5em 0;
+}
+
+.container input {
+  width: 100%;
+  padding: 1em;
+  border-radius: 20px;
+  border: none;
+  background: #e4e4e4;
+  text-align: center;
+}
+
+.container .btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100%;
+  max-width: 350px;
+  margin: 0 auto;
+}
+
+.container .btn button {
+  display: inline-block;
+  width: 20px;
+  min-width: 100px;
+  background: none;
+  margin: .2em auto;
+  color: #fff;
+}
+
+@media (max-width: 363px) {
+  .container h1 {
+    font-size: 1.4em;
+  }
+  .container p {
+    font-size: .8em;
+  }
+  .container .btn {
+    max-width: 100%;
+  }
+  .container .btn button {
+    width: 70px;
+    min-width: 0;
+  }
+}
+/*# sourceMappingURL=style.css.map */

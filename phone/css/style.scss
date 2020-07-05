@@ -1,0 +1,159 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@mixin pseudo() {
+    content: '';
+    position: absolute;
+    display: block;
+}
+
+@mixin position($t, $l, $b, $r) {
+   top: $t;
+   left: $l;
+   bottom: $b;
+   right: $r; 
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #a71313;
+}
+
+h1 {
+    margin-bottom: 1em;
+    cursor: pointer;
+}
+
+p {
+    margin-top: 3em;
+}
+
+h1:hover {
+    text-shadow: 0px -5px 10px #80808093;
+}
+
+.cover {
+    position: relative;
+    width: 20em;
+    height: 35em;
+    background-color: #1a1a1a;
+    border-radius: 1.5em;
+    box-shadow: 0 10px 60px 10px grey;
+}
+
+// Volume Button
+.cover::before {
+    @include pseudo();
+    @include position(4.5em, null, null, -3px);
+    width: 10px;
+    height: 5em;
+    border-radius: 0 10px 10px 0;
+    background: #1a1a1a;
+}
+
+// Power Button
+.cover::after {
+    @include pseudo();
+    @include position(10em, null, null,-3px);
+    width: 10px;
+    height: 3em;
+    border-radius: 0 10px 10px 0;
+    background: #1a1a1a;
+}
+
+.screen {
+    position: relative;
+    width: 19em;
+    height: 33em;
+    margin: auto;
+    margin-top: .5em;
+    border-radius: 1.5em;
+    animation: camera 5s linear 1s infinite;
+}
+
+.overlay {
+    // display: none;
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    @include position(-.5em, null, null,null );
+    width: 19em;
+    height: 33em;
+    margin: auto;
+    margin-top: .5em;
+    border-radius: 1.5em;
+    background: linear-gradient(to right,#3f3f3f,#818181);
+    transition: all 200ms;
+}
+
+.overlay-display {
+    visibility: visible;
+    opacity: 1;
+    transition: all 200ms;
+}
+
+// Notch
+.screen::before {
+    @include pseudo();
+    @include position(-.1em, 50%, null, null);
+    transform: translateX(-50%);
+    width: 35px;
+    height: 23px;
+    border-radius: 0 0 50px 50px;
+    background-color: #1a1a1a;
+    z-index: 1;
+}
+
+// Camera
+.screen::after {
+    @include pseudo();
+    @include position(0, 50%, null, null);
+    transform: translateX(-50%);
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #ffffff31;
+    animation: camera 5s linear 1s infinite;
+    z-index: 1;
+}
+
+object {
+    border-radius: 1.5em;
+}
+
+// Navigation
+.nav {
+    position: relative;
+    left: 50%;
+    top: -0.8em;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 5px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.575);
+    // animation: nav 1s ease-in-out infinite;
+}
+
+@keyframes nav {
+    0% {
+        top: -0.8em;
+    }
+
+    100% {
+        top: -1em;
+    }
+}
+
+@keyframes camera {
+    from {
+        background: linear-gradient(#dfdfdf,#90906e);
+    }
+}
